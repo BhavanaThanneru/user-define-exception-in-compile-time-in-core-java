@@ -1,0 +1,33 @@
+class productNotFoundException extends Exception{
+    // Constructor for the custom exception class
+    productNotFoundException(String message){
+        System.out.println("Hello:"+message);   // Prints a message to the console when the exception is created
+    }
+}
+public class ExceptionDemo6ownException {
+    int pno=100;   // Declares an integer variable pno and initializes it to 100
+        // Method that may throw a productNotFoundException
+    public void myData() throws productNotFoundException{
+                // Checks if pno is greater than 50
+        if(pno>50) {
+            throw new productNotFoundException("product Not there");
+            // Throws the exception if pno is greater than 50
+        }
+        else {
+            System.out.println("product are there");// Prints a message if products are available
+        }
+    }
+    public static void main(String[] args){
+        try {           // Creates an instance of ExceptionDemo6ownException
+            ExceptionDemo6ownException ed=new ExceptionDemo6ownException();
+    //Calls the myData method, which may throw a productNotFoundException            
+            ed.myData();
+        }
+        catch(productNotFoundException e)
+        // Catches the productNotFoundException and handles it
+        {
+            System.out.println("I can handle:"+e);
+    // Prints a message indicating that the exception was handled
+        }
+    }
+}
